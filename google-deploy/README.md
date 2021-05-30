@@ -22,4 +22,5 @@ gcloud run deploy --image gcr.io/<project_id>/<function_name> --platform managed
 
 ### Watch the video tutorial
 - How To Deploy ML Models With Google Cloud Run
+
 [![Alt text](https://img.youtube.com/vi/vieoHqt7pxo/hqdefault.jpg)](https://youtu.be/vieoHqt7pxo)
