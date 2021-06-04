@@ -1,5 +1,5 @@
 # PyTorch iOS
-Build a Cats / Dogs classifier, train and optimize it for mobile, and then save it
+Build a Cats / Dogs classifier, train and optimize it for mobile, and then save it.
 
 ## 0. Prepare Data
 Data is used from here:
@@ -34,7 +34,7 @@ python train.py
 ```
 
 It uses a transfer learning approach and takes a pretrained Mobilenet.
-Finetuning is applied with the Cats/Dogs data, and then the model is optimized for mobile using Torchscript and saved. This should dump the model file `model.pt`.
+Finetuning is applied with the Cats/Dogs data, and then the model is optimized for mobile using Torchscript and saved. This should dump the file `model.pt`.
 
 #### Resoures
 - [Transfer Learning](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)
@@ -48,6 +48,8 @@ Run
 ```
 python test.py
 ```
+
+Have a look at [test.py](test.py) to see how the model is loaded, how new images have to be preprocessed, and how the model output is interpreted as cat or dog.
 
 ## 3. TODO: Build iOS App
 Important: Before a new image is fed to the model, the image must be resized and normalized. Compare with the transformation steps in [test.py](test.py)). Also, the image must be in RGB format (no alpha channel), so that the input tensor for the model has the shape [1, 3, 224, 224].
