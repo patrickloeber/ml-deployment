@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="main">
+        <div class="px-2 scroll">
+
+            {% for message in messages %}
+                {% if message.name == "Sam" %}
+                    <div class="d-flex align-items-center">
+                        <div class="text-left pr-1">
+                            <img src="https://img.icons8.com/color/40/000000/guest-female.png" width="40" class="img1"/>
+                        </div>
+                        <div class="pr-2 pl-1"><span class="name">{{ message.name }}</span>
+                            <p class="msg">{{ message.msg }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="d-flex align-items-center text-right justify-content-end ">
+                        <div class="pr-2">
+                            <span class="name">{{ message.name }}</span>
+                            <p class="msg">{{ message.msg }}</p>
+                        </div>
+                        <div>
+                            <img src="https://avatars.githubusercontent.com/u/50772274?v=4" width="40" class="img1"/>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+        <form method="POST">
+            <nav class="navbar bg-white navbar-expand-sm d-flex justify-content-between">
+                <input type="text"
+                   name="text"
+                   class="form-control"
+                   placeholder="Type a message...">
+                <div class="icondiv d-flex justify-content-end align-content-center text-center ml-2">
+                    <button class="fa fa-arrow-circle-right icon2" type="submit"></button>
+                </div>
+            </nav>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
