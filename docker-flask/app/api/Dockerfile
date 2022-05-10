@@ -1,15 +1,13 @@
 FROM python:3.8
 
-WORKDIR /app
-
-COPY ./requirements.txt /app/requirements.txt
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
 RUN python -c "import nltk; nltk.download('omw-1.4'); nltk.download('wordnet')"
 
-COPY . /app
+COPY . .
 
-ENTRYPOINT [ "python" ]
+EXPOSE 5000
 
-CMD [ "app.py" ]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
